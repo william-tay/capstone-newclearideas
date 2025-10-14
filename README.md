@@ -1,2 +1,3 @@
 # capstone-newclearideas
-GitHub Repo for out 
+GitHub Repo for capstone
+
