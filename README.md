@@ -1,4 +1,4 @@
-#Network Traffic Simulation and Graph Neural Network (GCN) Modeling
+# Network Traffic Simulation and Graph Neural Network (GCN) Modeling
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-Geometric-orange)
@@ -7,7 +7,7 @@
 
 ---
 
-##Overview
+## Overview
 
 This project simulates **network traffic** on an *Autonomous System (AS)*-level topology and applies a **Graph Convolutional Network (GCN)** model to learn and predict node-level properties such as network load, delay, or congestion.
 
@@ -18,15 +18,15 @@ The system uses:
 
 ---
 
-##Features
+## Features
 
-✅ Load `.edges` topology files and build PyTorch Geometric graph objects  
-✅ Construct node features and edge weights for graph learning  
-✅ Implement and train a **2-layer GCN model** for node-level prediction  
-✅ Perform dummy training (regression on random targets)  
-✅ Display graph structure, training progress, and model output  
+Load `.edges` topology files and build PyTorch Geometric graph objects  
+Construct node features and edge weights for graph learning  
+Implement and train a **2-layer GCN model** for node-level prediction  
+Perform dummy training (regression on random targets)  
+Display graph structure, training progress, and model output  
 
-*Upcoming / Planned Features*  
+* Upcoming / Planned Features *  
 
 - Dynamic packet routing simulation (discrete-time network model)  
 - Integration of per-edge latency and capacity constraints  
@@ -35,7 +35,7 @@ The system uses:
 
 ---
 
-##Project Structure
+## Project Structure
 
 project_root/
 │
@@ -44,7 +44,7 @@ project_root/
 ├── README.md # Project documentation
 └── requirements.txt # Dependency list
 
-##Example Output
+## Example Output
 
 Data(x=[N, 3], edge_index=[2, E], edge_attr=[E, 1])
 tensor([[0.0321],
@@ -53,7 +53,7 @@ tensor([[0.0321],
         ...])
 Training done. Final loss: 0.0234
 
-##Release Notes
+## Release Notes
 Version 1.0 – Initial Graph Construction and GCN Training
 
 Working in this submission:
