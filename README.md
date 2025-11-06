@@ -33,17 +33,6 @@ Display graph structure, training progress, and model output
 - Real traffic generation and congestion visualization  
 - Evaluation on real network performance data  
 
----
-
-## Project Structure
-
-project_root/
-│
-├── simulate_traffic.py # Main script (load graph + train GCN)
-├── tech-as-topology.edges # Dataset file (AS connectivity graph)
-├── README.md # Project documentation
-└── requirements.txt # Dependency list
-
 ## Example Output
 
 Data(x=[N, 3], edge_index=[2, E], edge_attr=[E, 1])
