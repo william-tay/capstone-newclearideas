@@ -26,7 +26,7 @@ Implement and train a **2-layer GCN model** for node-level prediction
 Perform dummy training (regression on random targets)  
 Display graph structure, training progress, and model output  
 
-* Upcoming / Planned Features *  
+*Upcoming / Planned Features*  
 
 - Dynamic packet routing simulation (discrete-time network model)  
 - Integration of per-edge latency and capacity constraints  
