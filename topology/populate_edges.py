@@ -13,7 +13,6 @@ Can we add direction at all?
 Different types of physical connections?
 
 NEED TO VISUALIZE (if you want to easily interpret data returned by GNN)
-
 """
 
 #G = nx.read_edgelist("../tech-as-topology/tech-as-topology.edges")
@@ -26,35 +25,56 @@ NEED TO VISUALIZE (if you want to easily interpret data returned by GNN)
 '''
 labels with data and graph
 '''
-
-G = nx.read_edgelist(
-"../tech-as-topology/tech-as-topology-mini.edges",
-   delimiter=' ',  # Adjust if your delimiter is different (e.g., ',')
-   data=(('weight', float), ('color', str)), # Example attributes and their types
-   create_using=nx.Graph() # Or nx.DiGraph() if your graph is directed
-)
-
-
-#G = nx.read_edgelist("../tech-as-topology/tech-as-topology-mini.edges", nodetype=int)
-
+path_to_data = "../tech-as-topology/tech-as-topology-mini.edges"
+path_to_all_data = "../tech-as-topology/tech-as-topology.edges"
+# G = nx.read_edgelist(
+# path_to_data,
+#    delimiter=' ',  # Adjust if your delimiter is different (e.g., ',')
+#    data=(('weight', float), ('color', str)), # Example attributes and their types
+#    create_using=nx.Graph() # Or nx.DiGraph() if your graph is directed
+# )
+#Should be synonymous as above
+G = nx.read_edgelist("../tech-as-topology/tech-as-topology-mini.edges",
+                     nodetype=int, data=[("weight", float), ("color", str)])
 print(G) # print out with data=true
+# this assumes all the edges have the same labels 'marks' and 'cable_name'
+
+G_all = nx.read_edgelist("../tech-as-topology/tech-as-topology.edges",
+                     nodetype=int, data=[("weight", float)])
+
+min_degree_of_centrality = min(nx.degree_centrality(G_all).values())
+max_degree_of_centrality = max(nx.degree_centrality(G_all).values())
+
+print(f'Minimum Centrality: {min_degree_of_centrality}')
+print(f'Maximum Centrality: {max_degree_of_centrality} {max(nx.degree_centrality(G_all).keys())}')
+
+
+for u, v, data in G.edges(data=True):
+    G[u][v].clear()
+
+print("----------------ADDING EDGES----------------")
+for u, v, data in G.edges(data=True):
+    G.add_edge(u, v, weight=np.random.randint(1, 11)/10, color='pink')
+
+nx.write_edgelist(G, path_to_data, data=["weight", "color"])
 
 edge_labels = {}
-# this assumes all the edges have the same labels 'marks' and 'cable_name'
 for u, v, data in G.edges(data=True):
-    edge_labels[u, v] = f"{data['weight']}\n{data['color']}"
-    print(f'Edge: {u}-{v}: {edge_labels[u, v]}')
+    edge_labels[u, v] = f"{data['weight']} {data['color']}"
+    print(f'Edge: {u}-{v} {edge_labels[u, v]}')
+
 
 degree_of_centrality = min(nx.degree_centrality(G).values())
+print(degree_of_centrality)
+
 
 #Specify values in dictionary, since there will be many attributes {weight, latency, etc.}
-dc = nx.degree_centrality(G)
-least_node = min(dc, key=dc.get("weight"))
-print(least_node)
-least_value = dc[least_node]
+# dc = nx.degree_centrality(G)
+# least_node = min(dc, key=dc.get("weight"))
+# print(least_node)
+# least_value = dc[least_node]
+# print(least_value)
 
-print(least_value)
-print(degree_of_centrality)
 
 # counter = 0
 #
