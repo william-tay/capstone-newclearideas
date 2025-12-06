@@ -70,8 +70,6 @@ def choose_connection_type(u_type, v_type):
     else:
         return "wireless"
 
-# Profiles: (min,max) per metric for each connection type
-# Tweak these ranges to fit your domain
 connection_profiles = {
     "fiber": {
         "latency": (0.2, 5.0),        # ms
@@ -98,7 +96,6 @@ for u, v in G_all.edges():
     if u == v:
         continue
 
-    # Your nodes have "role" = "Endpoint"/"Router". Convert to lower for the chooser.
     u_type = G_all.nodes[u].get("role", "Router").lower()
     v_type = G_all.nodes[v].get("role", "Router").lower()
 
@@ -112,7 +109,7 @@ for u, v in G_all.edges():
     timestamp = random_timestamp()
 
     G_all.edges[u, v].update({
-        "color": conn_type,      # you’re using "color" to store type
+        "color": conn_type,
         "latency": latency,
         "bandwidth": bandwidth,
         "traffic_load": traffic_load,
@@ -151,12 +148,3 @@ nx.write_edgelist(
     "../tech-as-topology/tech-as-topology-visual.edges",
     data=True
 )
-
-# b) (Recommended for Gephi) Export a full-featured format:
-# nx.write_gexf(G_all, "../tech-as-topology/tech-as-topology-visual.gexf")
-# or edges-only CSV if you prefer:
-# import pandas as pd
-# rows = [(u, v, *d.values()) for u, v, d in G_all.edges(data=True)]
-# pd.DataFrame(
-#     [(u, v, d) for u, v, d in G_all.edges(data=True)],
-# ).to_csv("../tech-as-topology/tech-as-topology-visual-edges.csv", index=False)
