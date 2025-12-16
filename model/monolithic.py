@@ -1,9 +1,9 @@
 import torch
-from torch_geometric.data import Data
-from torch_geometric.nn import GCNConv
 import torch.nn.functional as F
 import ast
 import math
+from torch_geometric.data import Data
+from torch_geometric.nn import GCNConv
 from collections import defaultdict
 
 #parsing
@@ -57,7 +57,7 @@ for i, feats in enumerate(features):
     tl = feats["traffic_load"]
     rel = feats["reliability"]
 
-    #score formula (editable) prob need to change it
+    #score formula (editable)
     score = (w * rel * (1 - tl)) * math.log(bw + 1) / (lat + 1e-6)
 
     scores[i] = score
