@@ -45,7 +45,7 @@ Training done. Final loss: 0.0234
 ## Testing Branch
 
 Includes DQN implementation as an unfinished alternative model. Located in models folder as DQN.py
-Also included is testing.py which includes code for honors thesis project by Will
+Also included is deterrence.py which includes code for honors thesis project by Will
 
 ## Release Notes
 Version 1.0 – Initial Graph Construction and GCN Training
