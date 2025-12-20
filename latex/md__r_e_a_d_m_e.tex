@@ -1,0 +1,68 @@
+\chapter{Network Traffic Simulation and Graph Neural Network (GCN) Modeling }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Network Traffic Simulation and Graph Neural Network (GCN) Modeling@{Network Traffic Simulation and Graph Neural Network (GCN) Modeling}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+   
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md__r_e_a_d_m_e_autotoc_md2}
+This project simulates {\bfseries{network traffic}} on an {\itshape Autonomous System (AS)}-\/level topology and applies a {\bfseries{Graph Convolutional Network (GCN)}} model to learn and predict node-\/level properties such as network load, delay, or congestion.
+
+The system uses\+:
+\begin{DoxyItemize}
+\item {\bfseries{Py\+Torch Geometric (PyG)}} for graph processing ~\newline
+
+\item {\bfseries{NetworkX}} for graph analysis and routing simulation ~\newline
+
+\item A real-\/world dataset {\ttfamily tech-\/as-\/topology.\+edges} describing AS-\/level connectivity
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Features}{Features}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Load {\ttfamily .edges} topology files and build Py\+Torch Geometric graph objects ~\newline
+ Construct node features and edge weights for graph learning ~\newline
+ Implement and train a {\bfseries{2-\/layer GCN model}} for node-\/level prediction ~\newline
+ Perform dummy training (regression on random targets) ~\newline
+ Display graph structure, training progress, and model output ~\newline
+
+
+{\itshape Upcoming / Planned Features} ~\newline
+
+
+
+\begin{DoxyItemize}
+\item Dynamic packet routing simulation (discrete-\/time network model) ~\newline
+
+\item Integration of per-\/edge latency and capacity constraints ~\newline
+
+\item Real traffic generation and congestion visualization ~\newline
+
+\item Evaluation on real network performance data ~\newline
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Example Output}{Example Output}}\label{md__r_e_a_d_m_e_autotoc_md5}
+Data(x=\mbox{[}N, 3\mbox{]}, edge\+\_\+index=\mbox{[}2, E\mbox{]}, edge\+\_\+attr=\mbox{[}E, 1\mbox{]}) tensor(\mbox{[}\mbox{[}0.\+0321\mbox{]}, \mbox{[}-\/0.\+1192\mbox{]}, \mbox{[}0.\+0577\mbox{]}, ...\mbox{]}) Training done. Final loss\+: 0.\+0234\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Release Notes}{Release Notes}}\label{md__r_e_a_d_m_e_autotoc_md6}
+Version 1.\+0 – Initial Graph Construction and GCN Training
+
+Working in this submission\+:
+
+Graph data loading and preprocessing
+
+Node and edge tensor creation for Py\+Torch Geometric
+
+Two-\/layer GCN model implementation and forward propagation
+
+Dummy supervised training loop with MSE loss
+
+Output of model predictions and training diagnostics
+
+Not yet implemented (Next Milestone)\+:
+
+End-\/to-\/end packet-\/level traffic simulation
+
+Dynamic latency and bandwidth constraints
+
+Real-\/world target variable training (beyond random)
+
+Visualization of graph metrics and network flow 
